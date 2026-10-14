@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #0A0A0A;
+  --color-primary: #F2F0EB;
+  --color-secondary: #969696;
+  --color-accent: #C8B89A;
+  --color-accent-hover: #D8CBAD;
+  --color-accent-subtle: rgba(200, 184, 154, 0.12);
+  --color-surface-subtle: #121212;
+  --color-surface-card: #161616;
+  --color-border-subtle: #222222;
+  --color-border-hover: #333333;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    background-color: #0A0A0A;
+    color: #F2F0EB;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #0A0A0A;
+    color: #F2F0EB;
+    overflow-x: hidden;
+  }
+
+  /* Consistent luxury focus outline */
+  :focus-visible {
+    outline: 1.5px solid #C8B89A;
+    outline-offset: 3px;
+  }
+
+  /* Custom subtle dark scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0A0A0A;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #222222;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #333333;
+  }
+}
+
+/* Global reduced-motion override */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Reusable cinematic layout and typography utilities */
+.container-cinematic {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .container-cinematic {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-cinematic {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-cinematic {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-cinematic {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}

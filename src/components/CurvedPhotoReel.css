@@ -1,0 +1,108 @@
+.curved-reel-section {
+  position: relative;
+  margin: -1.5rem calc(50% - 50vw) 5rem;
+  overflow: hidden;
+  border-top: 1px solid rgba(230, 243, 90, .22);
+  border-bottom: 1px solid rgba(230, 243, 90, .22);
+  background: radial-gradient(ellipse at 50% 54%, rgba(66, 70, 47, .3), transparent 70%);
+}
+
+.curved-reel-heading,
+.curved-reel-controls {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem max(1.5rem, calc((100vw - 1344px) / 2));
+  color: rgba(244, 240, 233, .55);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.curved-reel-heading span:first-child { color: #e6f35a; }
+
+.curved-reel {
+  position: relative;
+  width: 100%;
+  height: clamp(27rem, 42vw, 39rem);
+  overflow: hidden;
+  container-type: size;
+}
+
+.curved-reel-band {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transition: opacity .5s ease;
+}
+
+.curved-reel-tile {
+  position: absolute;
+  overflow: visible;
+  transform-style: preserve-3d;
+}
+
+.curved-reel-slice {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  background: #171812;
+  backface-visibility: hidden;
+}
+
+.curved-reel-slice:first-child { border-radius: 7px 0 0 7px; }
+.curved-reel-slice:last-child { border-radius: 0 7px 7px 0; }
+
+.curved-reel-slice-image {
+  position: absolute;
+  top: 0;
+  max-width: none;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.curved-reel-controls {
+  min-height: 3.75rem;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+}
+
+.curved-reel-toggle {
+  display: inline-flex;
+  min-height: 2.25rem;
+  align-items: center;
+  gap: .55rem;
+  border: 1px solid rgba(230, 243, 90, .48);
+  padding: .4rem .75rem;
+  color: #e6f35a;
+  background: transparent;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color .2s ease, background .2s ease;
+}
+
+.curved-reel-toggle:hover:not(:disabled) {
+  color: #11120b;
+  background: #e6f35a;
+}
+
+.curved-reel-toggle:focus-visible { outline: 2px solid #e6f35a; outline-offset: 3px; }
+.curved-reel-toggle:disabled { cursor: not-allowed; opacity: .6; }
+.curved-reel-toggle svg { width: .8rem; height: .8rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .curved-reel-tile { animation-play-state: paused !important; }
+}
+
+@media (max-width: 639px) {
+  .curved-reel-section { margin-top: -1rem; margin-bottom: 3.5rem; }
+  .curved-reel-heading,
+  .curved-reel-controls { padding-right: 1.25rem; padding-left: 1.25rem; font-size: .55rem; }
+  .curved-reel { height: 25rem; }
+}
